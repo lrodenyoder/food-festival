@@ -10,4 +10,5 @@
 A PWA developed using webpack to demonstrate how to optomize applications for mobile (throttled and offline services).
 
 Developed as part of UT Austin Bootcamp
-https://lrodenyoder.github.io/food-festival/
+
+[Click Here](https://lrodenyoder.github.io/food-festival/) to go to the webpage
