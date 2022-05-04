@@ -11,7 +11,7 @@ module.exports = {
   },
   output: {
     filename: "[name].bundle.js",
-    path: __dirname + "/dist"
+    path: __dirname + "/dist",
   },
   module: {
     rules: [
@@ -19,32 +19,38 @@ module.exports = {
         test: /\.jpg$/i,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
               esModule: false,
               name(file) {
-                return "[path][name].[ext]"
+                return "[path][name].[ext]";
               },
               publicPath: function (url) {
-                return url.replace('../', '/assets/')
-              }
-            }
+                return url.replace("../", "/assets/");
+              },
+            },
           },
           {
-            loader: 'image-webpack-loader',
-          }
-        ]
-      }
-    ]
+            loader: "image-webpack-loader",
+          },
+        ],
+      },
+    ],
+  },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "./"),
+      watch: true,
+    },
   },
   plugins: [
     new webpack.ProvidePlugin({
       $: "jquery",
-      jQuery: "jquery"
+      jQuery: "jquery",
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: "static",
-    })
+    }),
   ],
   mode: "development",
 };
